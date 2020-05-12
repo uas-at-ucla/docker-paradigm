@@ -12,6 +12,7 @@ Encrypted Travis environment variables need to be setup for each individual repo
 gem install travis
 travis login --pro # Log in with your GitHub account
 travis encrypt --pro DOCKER_PASSWORD="secretpassword"
+# Replace the "secure" entry in .travis.yml with the output
 ```
 
 ### Uploading the first Docker image
