@@ -1,0 +1,27 @@
+version: '3.2'
+
+services:
+  cache:
+    image: uasatucla/docker-paradigm-dev
+
+  dev:
+    depends_on:
+      - cache
+    build: 
+      context: .devcontainer
+      cache_from:
+        - uasatucla/docker-paradigm-dev
+      args:
+        - BUILDKIT_INLINE_CACHE=1
+    image: uasatucla/docker-paradigm-dev
+    container_name: docker-paradigm-dev
+    volumes:
+      - .:/workspace:cached
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    # more_run_options_go_here:
+    
+  prod:
+    build:
+      context: .
+      dockerfile: prod.Dockerfle
+    image: uasatucla/docker-paradigm
