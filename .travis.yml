@@ -2,7 +2,6 @@ os:
   - linux
 
 script:
-  - "docker-compose build dev"
   - "docker-compose up --build -d"
   - "docker-compose exec dev ./build.sh"
   - "docker-compose exec dev echo \"Running imaginary tests\""
