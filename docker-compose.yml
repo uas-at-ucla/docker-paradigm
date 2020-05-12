@@ -23,5 +23,5 @@ services:
   prod:
     build:
       context: .
-      dockerfile: prod.Dockerfle
+      dockerfile: prod.Dockerfile
     image: uasatucla/docker-paradigm
