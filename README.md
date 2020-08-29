@@ -3,7 +3,7 @@
 Structure for projects that use Docker, including features such as saving images in Docker Hub so that developers & Travis CI can use the cached layers, thus saving time.
 
 ## Initializing a Project
-Make a copy of this repository / copy these files into an existing project. Replace instances of "docker-paradigm" with your project name.
+Make a copy of this repository / copy these files into an existing project. Replace instances of "docker-paradigm" with your project name (in docker-compose.yml and prod.Dockerfile).
 
 ### Configuring the UAS@UCLA Docker Hub password
 Encrypted Travis environment variables need to be setup for each individual repository. Someone in the club will know the password. Here's how to set it up:
