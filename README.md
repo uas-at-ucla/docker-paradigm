@@ -15,9 +15,17 @@ travis encrypt --pro DOCKER_PASSWORD="secretpassword"
 # Replace the "secure" entry in .travis.yml with the output
 ```
 
-### Uploading the first Docker image
+### Uploading the first Docker image (with Travis)
 docker-compose.yml tries to pull the development image from Docker Hub to use as cache, but it doesn't exist yet on the first run. To upload it, temporarily add the following as the first command in the .travis.yml script:
 ```yml
   - "docker-compose build dev"
 ```
-After commiting this change and Travis uploads the image, revert the change and you are set.
+After committing this change and pushing to GitHub, you can immediately revert back (builds will still fail before the initial Docker image is uploaded, but that's ok).
+
+### Uploading the first Docker image (manually)
+You may find it more convenient to upload the initial image from your computer instead of fiddling with Travis/GitHub:
+```bash
+docker-compose build dev
+docker login -u uasatucla
+docker-compose push dev
+```
