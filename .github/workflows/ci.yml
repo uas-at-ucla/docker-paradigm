@@ -10,9 +10,12 @@ on:
       - master
 
 jobs:
-  # Run tests.
-  test:
+  # Build code, run tests, and upload Docker images.
+  build_test_push:
     runs-on: ubuntu-latest
+
+    env:
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +25,7 @@ jobs:
 
       - name: Start Docker container
         run: docker-compose up --build -d dev
-        
+
       - name: Build code
         run: docker-compose exec -T dev ./build.sh
 
@@ -32,19 +35,6 @@ jobs:
       - name: Stop Docker container
         run: docker-compose down
 
-  # Push images to Docker Hub.
-  push:
-    # Ensure test job passes before pushing images.
-    needs: test
-
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-
-    env:
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
-    steps:
-      - uses: actions/checkout@v2
-
       - name: Push Docker images
-        run: ./docker_push.sh
+        if: github.event_name == 'push'
+        run: ./docker_push.sh     
