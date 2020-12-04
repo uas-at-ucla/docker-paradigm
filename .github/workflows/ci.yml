@@ -24,10 +24,10 @@ jobs:
         run: docker-compose up --build -d dev
         
       - name: Build code
-        run: docker-compose exec dev ./build.sh
+        run: docker-compose exec -T dev ./build.sh
 
       - name: Run tests
-        run: docker-compose exec dev echo "Running imaginary tests"
+        run: docker-compose exec -T dev echo "Running imaginary tests"
 
       - name: Stop Docker container
         run: docker-compose down
