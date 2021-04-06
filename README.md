@@ -26,3 +26,5 @@ docker-compose push dev
 The UAS@UCLA Docker Hub password is stored in a GitHub "organization secret" (safely encrypted). Organization owners can see the configuration here:
 * https://github.com/organizations/uas-at-ucla/settings/secrets/actions (for uas-at-ucla)
 * https://github.com/organizations/uas-at-ucla-dependencies/settings/secrets/actions (for uas-at-ucla-dependencies)
+
+Unfortunately, organization secrets cannot by used private repositories if the organiziation is on the free plan.
