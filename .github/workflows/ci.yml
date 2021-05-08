@@ -14,14 +14,8 @@ jobs:
   build_test_push:
     runs-on: ubuntu-latest
 
-    env:
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
     steps:
       - uses: actions/checkout@v2
-
-#       - name: Force-build Docker container from scratch. Only required prior to first image upload.
-#         run: docker-compose build dev
 
       - name: Start Docker container
         run: docker-compose up --build -d dev
@@ -37,4 +31,8 @@ jobs:
 
       - name: Push Docker images
         if: github.event_name == 'push'
-        run: ./docker_push.sh     
+        run: |
+          docker-compose build prod
+          echo ${{secrets.GITHUB_TOKEN}} | docker login ghcr.io -u ${{github.repository_owner}} --password-stdin
+          docker-compose push dev
+          docker-compose push prod

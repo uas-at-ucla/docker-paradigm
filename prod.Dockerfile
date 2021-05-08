@@ -1,3 +1,3 @@
-# Production Dockerfile. Should only be built in Travis after code is built.
-FROM uasatucla/docker-paradigm-dev
-COPY . /workspace
+# Production Dockerfile. Should only be built in CI after code is built.
+FROM ghcr.io/uas-at-ucla/docker-paradigm-dev
+COPY . /docker-paradigm
