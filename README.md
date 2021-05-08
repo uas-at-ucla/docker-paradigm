@@ -9,7 +9,7 @@ Make a copy of this repository (click "Use this template" above), or copy these 
 This project stores images in the GitHub Container Registry. As of writing this, the GitHub Container Registry is in beta, and needs to be enabled for your account or organization. See https://docs.github.com/en/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
 
 ## Enabling Docker BuildKit
-To get the most out of this on your local computer (i.e. take advantage of layer caching from remote images), you should enable Docker BuildKit. See https://docs.docker.com/develop/develop-images/build_enhancements
+To get the most out of this on your local computer (i.e. take advantage of layer caching from remote images), you should enable Docker BuildKit. This is done by setting the environment variables `DOCKER_BUILDKIT=1` and `COMPOSE_DOCKER_CLI_BUILD=1`. For more info, see https://docs.docker.com/develop/develop-images/build_enhancements
 
 ## Logging into the GitHub Container Registry
 You may need to log in to the GitHub Container Registry if you make this a private repository or want to manually upload images. Instructions can be found here: https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
