@@ -12,9 +12,10 @@ services:
     container_name: docker-paradigm-dev
     volumes:
       - .:/workspace:cached
+    working_dir: /workspace
     command: /bin/sh -c "while sleep 1000; do :; done"
     # more_run_options_go_here:
-    
+
   prod:
     build:
       context: .
