@@ -12,6 +12,11 @@ See [Initializing a Project](#initializing-a-project) to get started. If you wan
 ## Initializing a Project
 Make a copy of this repository (click "Use this template" above), or copy these files into an existing project. Replace instances of "docker-paradigm" with your project name (in docker-compose.yml and prod.Dockerfile). If you are outside UAS@UCLA, replace uas-at-ucla with your GitHub organization or username.
 
+### Relevant Files
+* The **Dockerfile** which you should customize to set up your development environment is located in **.devcontainer/Dockerfile**.
+* The **GitHub Workflow** that builds and tests your code is in **.github/workflows/ci.yml**.
+* The **Docker Compose** file that configures options for building and running your containers is **docker-compose.yml**.
+
 ## Enabling GitHub Container Registry
 This project stores images in the GitHub Container Registry. As of writing this, the GitHub Container Registry is in beta, and needs to be enabled for your account or organization. See https://docs.github.com/en/packages/working-with-a-github-packages-registry/enabling-improved-container-support-with-the-container-registry
 
